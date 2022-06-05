@@ -17,7 +17,7 @@ class Team extends Model
 
     public function members()
     {
-        return $this->belongsToMany(User::class, 'team_users', 'team_id', 'user_id')
+        return $this->belongsToMany(User::class, TeamUser::class, 'team_id', 'user_id')
             ->withTimestamps('joined_at')
             ->withPivot('is_creator');
     }
